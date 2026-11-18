@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "name": "RoadStar Express",
+    "from": "Karachi",
+    "to": "Lahore",
+    "time": "08:00 AM",
+    "price": 4500,
+    "seats": 40,
+    "date": "2026-11-20"
+  },
+  {
+    "id": 2,
+    "name": "SkyWays Coach",
+    "from": "Karachi",
+    "to": "Islamabad",
+    "time": "09:30 PM",
+    "price": 5200,
+    "seats": 36,
+    "date": "2026-11-20"
+  },
+  {
+    "id": 3,
+    "name": "CityLink Travels",
+    "from": "Lahore",
+    "to": "Islamabad",
+    "time": "07:15 AM",
+    "price": 1800,
+    "seats": 32,
+    "date": "2026-11-20"
+  },
+  {
+    "id": 4,
+    "name": "RoadStar Express",
+    "from": "Hyderabad",
+    "to": "Karachi",
+    "time": "05:00 PM",
+    "price": 1200,
+    "seats": 40,
+    "date": "2026-11-21"
+  },
+  {
+    "id": 5,
+    "name": "FastTrack Bus",
+    "from": "Karachi",
+    "to": "Multan",
+    "time": "10:00 PM",
+    "price": 3000,
+    "seats": 40,
+    "date": "2026-11-21"
+  }
+]
