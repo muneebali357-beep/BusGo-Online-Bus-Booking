@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BusGo | Online Bus Booking</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" data-page="home">🚌 BusGo</a>
+    <nav>
+      <button class="nav-btn active" data-page="home">Home</button>
+      <button class="nav-btn" data-page="bookings">My Bookings</button>
+      <button class="nav-btn" data-page="admin">Admin</button>
+      <button class="nav-btn" data-page="driver">Driver</button>
+    </nav>
+    <div class="role-box">
+      <label for="roleSelect">Demo role</label>
+      <select id="roleSelect">
+        <option value="passenger">Passenger</option>
+        <option value="admin">Admin</option>
+        <option value="driver">Driver</option>
+      </select>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="home" class="page active">
+      <div class="hero">
+        <div>
+          <p class="eyebrow">TRAVEL MADE SIMPLE</p>
+          <h1>Book your next bus journey.</h1>
+          <p>Search routes, choose your seat and keep your tickets in one place.</p>
+        </div>
+        <div class="hero-icon">🚌</div>
+      </div>
+
+      <div class="panel search-panel">
+        <h2>Find your bus</h2>
+        <form id="searchForm" class="search-grid">
+          <div>
+            <label for="from">From</label>
+            <select id="from" required>
+              <option value="">Select city</option>
+              <option>Karachi</option><option>Lahore</option><option>Islamabad</option>
+              <option>Hyderabad</option><option>Multan</option><option>Faisalabad</option>
+            </select>
+          </div>
+          <div>
+            <label for="to">To</label>
+            <select id="to" required>
+              <option value="">Select city</option>
+              <option>Karachi</option><option>Lahore</option><option>Islamabad</option>
+              <option>Hyderabad</option><option>Multan</option><option>Faisalabad</option>
+            </select>
+          </div>
+          <div>
+            <label for="travelDate">Travel date</label>
+            <input id="travelDate" type="date" required>
+          </div>
+          <button class="primary-btn" type="submit">Search buses</button>
+        </form>
+        <p id="searchMessage" class="message" aria-live="polite"></p>
+      </div>
+
+      <section class="results-section">
+        <div class="section-heading">
+          <h2>Available buses</h2>
+          <span id="resultCount" class="muted">Loading schedules...</span>
+        </div>
+        <div id="busList" class="bus-grid"></div>
+      </section>
+    </section>
+
+    <section id="bookings" class="page">
+      <div class="section-heading"><div><p class="eyebrow">YOUR TRIPS</p><h1>My Bookings</h1></div></div>
+      <div id="bookingList" class="panel"></div>
+    </section>
+
+    <section id="admin" class="page">
+      <div class="section-heading"><div><p class="eyebrow">MANAGEMENT</p><h1>Admin dashboard</h1></div></div>
+      <div id="adminNotice" class="notice"></div>
+      <div class="panel">
+        <h2>Add a bus schedule</h2>
+        <form id="busForm" class="form-grid">
+          <div><label for="busName">Bus company/name</label><input id="busName" required maxlength="40" placeholder="e.g. City Express"></div>
+          <div><label for="busFrom">From</label><input id="busFrom" required placeholder="Karachi"></div>
+          <div><label for="busTo">To</label><input id="busTo" required placeholder="Lahore"></div>
+          <div><label for="busTime">Departure time</label><input id="busTime" type="time" required></div>
+          <div><label for="busPrice">Ticket price (PKR)</label><input id="busPrice" type="number" min="1" required></div>
+          <div><label for="busSeats">Total seats</label><input id="busSeats" type="number" min="1" max="60" value="40" required></div>
+          <button class="primary-btn" type="submit">Add schedule</button>
+        </form>
+      </div>
+      <div class="panel">
+        <h2>Current schedules</h2>
+        <div id="adminBusList"></div>
+      </div>
+    </section>
+
+    <section id="driver" class="page">
+      <div class="section-heading"><div><p class="eyebrow">TRIP UPDATES</p><h1>Driver panel</h1></div></div>
+      <div id="driverNotice" class="notice"></div>
+      <div id="driverList" class="panel"></div>
+    </section>
+  </main>
+
+  <footer>© 2026 BusGo · Web Engineering Project · Frontend demo</footer>
+
+  <dialog id="bookingDialog">
+    <form id="bookingForm" method="dialog">
+      <button type="button" class="close-btn" id="closeDialog" aria-label="Close">×</button>
+      <p class="eyebrow">RESERVE YOUR SEAT</p>
+      <h2 id="dialogBusTitle">Bus details</h2>
+      <p id="dialogBusInfo" class="muted"></p>
+      <input type="hidden" id="selectedBusId">
+      <label for="passengerName">Passenger name</label>
+      <input id="passengerName" required minlength="2" maxlength="50" placeholder="Your full name">
+      <label for="passengerPhone">Phone number</label>
+      <input id="passengerPhone" type="tel" required pattern="[0-9+ -]{10,16}" placeholder="03XXXXXXXXX">
+      <label for="seatNumber">Seat number</label>
+      <select id="seatNumber" required></select>
+      <button class="primary-btn full" type="submit">Confirm booking</button>
+      <p id="bookingMessage" class="message" aria-live="polite"></p>
+    </form>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
